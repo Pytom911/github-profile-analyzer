@@ -6,9 +6,9 @@ type Activity = Analysis["activity"];
 
 export function ActivityPanel({ data }: { data: Activity }) {
   const buckets = [
-    { label: "30 hari terakhir", value: data.last30 },
-    { label: "90 hari terakhir", value: data.last90 },
-    { label: "12 bulan terakhir", value: data.last365 },
+    { label: "Last 30 days", value: data.last30 },
+    { label: "Last 90 days", value: data.last90 },
+    { label: "Last 365 days", value: data.last365 },
   ];
 
   return (
@@ -20,7 +20,7 @@ export function ActivityPanel({ data }: { data: Activity }) {
             className="flex items-center justify-between text-sm"
           >
             <span className="text-zinc-400">{bucket.label}</span>
-            <span className="font-medium">
+            <span className="font-medium text-white">
               {formatNumber(bucket.value)} repo
             </span>
           </li>
@@ -28,16 +28,16 @@ export function ActivityPanel({ data }: { data: Activity }) {
       </ul>
 
       <p className="mt-5 border-t border-zinc-800 pt-5 text-sm text-zinc-400">
-        Push terakhir:{" "}
+        Last push:{" "}
         <span className="font-medium text-zinc-200">
           {data.daysSincePush === null
-            ? "tidak ada data"
-            : `${formatNumber(data.daysSincePush)} hari lalu`}
+            ? "No data"
+            : `${formatNumber(data.daysSincePush)} days ago`}
         </span>
       </p>
 
       <p className="mt-2 text-xs text-zinc-500">
-        Dihitung dari push terakhir di repo asli, bukan dari waktu repo dibuat.
+        Counted from the latest push in original repositories, not creation time.
       </p>
     </Card>
   );

@@ -10,10 +10,10 @@ export function Section({
   children: ReactNode;
 }) {
   return (
-    <section className="mt-10">
-      <div className="mb-5">
-        <h2 className="text-2xl font-bold">{title}</h2>
-        {hint && <p className="mt-1 text-sm text-zinc-500">{hint}</p>}
+    <section className="mt-12">
+      <div className="mb-6">
+        <h2 className="text-xl font-semibold tracking-tight text-zinc-100 sm:text-2xl">{title}</h2>
+        {hint && <p className="mt-1.5 text-sm text-zinc-400">{hint}</p>}
       </div>
       {children}
     </section>
@@ -29,7 +29,7 @@ export function Card({
 }) {
   return (
     <div
-      className={`rounded-2xl border border-zinc-800 bg-zinc-900 p-6 ${className}`}
+      className={`rounded-2xl border border-zinc-800/80 bg-zinc-900/60 p-6 shadow-xl backdrop-blur-md transition-all ${className}`}
     >
       {children}
     </div>
@@ -44,9 +44,9 @@ export function Stat({
   value: string | number;
 }) {
   return (
-    <div className="rounded-xl bg-zinc-800 p-4 text-center">
-      <p className="text-2xl font-bold">{value}</p>
-      <p className="mt-1 text-xs text-zinc-400">{label}</p>
+    <div className="rounded-xl border border-zinc-800/50 bg-zinc-800/40 p-4 text-center">
+      <p className="text-2xl font-bold tracking-tight text-white">{value}</p>
+      <p className="mt-1 text-xs font-medium text-zinc-400">{label}</p>
     </div>
   );
 }

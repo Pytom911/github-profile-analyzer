@@ -10,32 +10,31 @@ export function CompositionPanel({ data }: { data: Composition }) {
   return (
     <Card>
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-        <Stat label="Repo asli" value={formatNumber(data.own)} />
-        <Stat label="Fork" value={formatNumber(data.forks)} />
+        <Stat label="Original" value={formatNumber(data.own)} />
+        <Stat label="Forks" value={formatNumber(data.forks)} />
         <Stat label="Archived" value={formatNumber(data.archived)} />
-        <Stat label="Total dianalisis" value={formatNumber(data.analyzed)} />
+        <Stat label="Analyzed" value={formatNumber(data.analyzed)} />
       </div>
 
       <div className="mt-5 space-y-2 border-t border-zinc-800 pt-5 text-sm text-zinc-400">
         <p>
-          GitHub melaporkan{" "}
+          GitHub reports{" "}
           <span className="font-medium text-zinc-200">
             {formatNumber(data.reported)}
           </span>{" "}
-          repo publik pada profil ini.
+          public repositories for this profile.
         </p>
 
         {data.truncated ? (
           <p className="text-amber-400">
-            Repo yang dianalisis terpotong pada batas 500 repo, jadi angka di
-            atas belum mencakup seluruh repo publik.
+            Analysis is capped at 500 repositories, so the numbers above do not cover all public repos.
           </p>
         ) : gap !== 0 ? (
           <p className="text-amber-400">
-            Selisih {formatNumber(Math.abs(gap))} repo belum teranalisis.
+            {formatNumber(Math.abs(gap))} repositories were not yet analyzed.
           </p>
         ) : (
-          <p>Seluruh repo publik yang dilaporkan GitHub sudah dianalisis.</p>
+          <p>All public repositories reported by GitHub have been analyzed.</p>
         )}
       </div>
     </Card>

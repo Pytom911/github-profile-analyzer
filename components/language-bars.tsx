@@ -32,7 +32,7 @@ export function LanguageBars({ slices }: { slices: LanguageSlice[] }) {
     return (
       <Card>
         <p className="text-zinc-400">
-          Tidak ada repo yang mendeteksi bahasa pemrograman.
+          No programming languages detected in repositories.
         </p>
       </Card>
     );
@@ -49,7 +49,7 @@ export function LanguageBars({ slices }: { slices: LanguageSlice[] }) {
           return (
             <li key={slice.language}>
               <div className="mb-1.5 flex items-baseline justify-between gap-4 text-sm">
-                <span className="flex items-center gap-2 font-medium">
+                <span className="flex items-center gap-2 font-medium text-zinc-100">
                   <span
                     aria-hidden
                     className="h-2.5 w-2.5 shrink-0 rounded-full"
@@ -57,12 +57,12 @@ export function LanguageBars({ slices }: { slices: LanguageSlice[] }) {
                   />
                   {slice.language}
                 </span>
-                <span className="shrink-0 text-zinc-500">
+                <span className="shrink-0 text-xs text-zinc-400">
                   {slice.repos} repo · {formatPercent(slice.share)}
                 </span>
               </div>
 
-              <div className="h-2 overflow-hidden rounded-full bg-zinc-800">
+              <div className="h-2 overflow-hidden rounded-full bg-zinc-800/50">
                 <div
                   className="h-full rounded-full"
                   style={{
@@ -77,8 +77,7 @@ export function LanguageBars({ slices }: { slices: LanguageSlice[] }) {
       </ul>
 
       <p className="mt-5 text-xs text-zinc-500">
-        Persentase dihitung dari total {formatNumber(totalRepos)} repo yang
-        terdeteksi bahasanya. Fork tidak dihitung.
+        Percentages calculated from {formatNumber(totalRepos)} repositories with detected languages. Forks excluded.
       </p>
     </Card>
   );
